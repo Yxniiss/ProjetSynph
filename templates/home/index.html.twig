@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<h1>Bienvenue sur mon site Symfony</h1>
+
+<p>Ce site est un projet scolaire réalisé avec Symfony 7.</p>
+
+{% if app.user %}
+    <p>Bonjour {{ app.user.email }}, vous êtes connecté !</p>
+{% else %}
+    <p>Vous n'êtes pas connecté. <a href="{{ path('app_login') }}">Connexion</a> ou <a href="{{ path('app_register') }}">Créer un compte</a></p>
+{% endif %}
+{% endblock %}

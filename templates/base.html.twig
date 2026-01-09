@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenue{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        
+        {% block stylesheets %}
+        {% endblock %}
+        
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <nav>
+            <a href="{{ path('app_home') }}">Accueil</a>
+
+            {% if app.user %}
+                <a href="#">Profil</a>
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">Connexion</a>
+                <a href="{{ path('app_register') }}">Créer un compte</a>
+            {% endif %}
+
+            <a href="{{ path('contact') }}">Contact</a>
+            <a href="{{ path('mentions_legales') }}">Mentions légales</a>
+            <a href="{{ path('cgu') }}">CGU</a>
+            <a href="{{ path('cgv') }}">CGV</a>
+            <a href="{{ path('politique_confidentialite') }}">Politique de confidentialité</a>
+            <a href="{{ path('qui_sommes_nous') }}">Qui sommes-nous ?</a>
+        </nav>
+        <hr>
+
+        {% block body %}
+        {% endblock %}
+
+        <hr>
+        <footer>
+            <div>
+                <p><strong>Dessine‑moi un site</strong></p>
+                <p>
+                    <a href="{{ path('contact') }}">Contact</a> •
+                    <a href="{{ path('mentions_legales') }}">Mentions légales</a> •
+                    <a href="{{ path('cgu') }}">CGU</a> •
+                    <a href="{{ path('cgv') }}">CGV</a> •
+                    <a href="{{ path('politique_confidentialite') }}">Politique de confidentialité</a> •
+                    <a href="{{ path('qui_sommes_nous') }}">Qui sommes‑nous</a>
+                </p>
+                <p style="font-size:0.9em;color:#666;">&copy; {{ "now"|date("Y") }} Dessine‑moi un site. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </body>
+</html>
